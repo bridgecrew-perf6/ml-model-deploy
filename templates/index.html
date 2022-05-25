@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>ML Model Deploy</title>
+    </head>
+    <body>
+        <h1>Step 1: Upload your file</h1>
+        <div>
+            <form enctype="multipart/form-data" action="{{ url_for('upload_csv') }}" method="post">
+                <label for="test-csv">Choose a test file:</label>
+                <input type="file" id="test-csv" name="test-csv" accept=".csv">
+                <input type="submit">
+            </form>
+        </div>
+
+        <h1>Step 2: Preview your file</h1>
+        <div>
+            <table>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>...</td>
+                <td>{{ row[-2] }}</td>
+                <td>{{ row[-1] }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+
+
+        <h1>Step 3: Retrieve your prediction</h1>
+        <div>
+            <table>
+            {% for row in prediction %}
+            <tr>
+                <td>{{ row[-1] }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

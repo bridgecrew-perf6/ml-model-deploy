@@ -6,8 +6,6 @@ import numpy as np
 from flask import Flask, render_template, request, redirect, url_for
 from joblib import load
 
-print(os.getcwd())
-
 pipeline = load("model/human_activity_classification.joblib")
 
 def predict_result(data):
@@ -35,8 +33,7 @@ def upload_csv():
         for row in csv_file:
             data.append(row)
     prediction = predict_result(data)
-    return render_template('index.html', data=data, prediction=prediction)
+    return render_template('index.html', header=[data[0]], data=data[1:], prediction=prediction)
 
 if __name__ == '__main__' :
     app.run(debug=True)
-

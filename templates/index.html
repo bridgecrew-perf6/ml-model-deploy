@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>ML Model Deploy</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Step 1: Upload your file</h1>
+            <div>
+                <form enctype="multipart/form-data" action="{{ url_for('upload_csv') }}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="test-csv">Choose a test file:</label>
+                        <input class="form-control" type="file" id="test-csv" name="test-csv" accept=".csv"><br/>
+                    </div>
+                    <input class="btn btn-success" type="submit" value="Upload">
+                </form>
+            </div>
+
+            <h1>Step 2: Preview your file</h1>
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        {% for row in header %}
+                        <tr>
+                            <th>{{ row[0] }}</th>
+                            <th>{{ row[1] }}</th>
+                            <th>...</th>
+                            <th>{{ row[-2] }}</th>
+                            <th>{{ row[-1] }}</th>
+                        </tr>
+                        {% endfor %}
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>...</td>
+                            <td>{{ row[-2] }}</td>
+                            <td>{{ row[-1] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h1>Step 3: Retrieve your prediction</h1>
+            <div>
+                <table class="table">
+                {% for row in prediction %}
+                <tr>
+                    <td>{{ row[-1] }}</td>
+                </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

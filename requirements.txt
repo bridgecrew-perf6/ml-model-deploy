@@ -2,3 +2,5 @@ pandas
 numpy
 sklearn
 joblib
+flask
+flask_cors

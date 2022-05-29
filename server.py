@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 from flask import Flask, render_template, request, redirect, url_for
+from flask_cors import CORS
 from joblib import load
 
 pipeline = load("model/human_activity_classification.joblib")
@@ -16,24 +17,27 @@ def predict_result(data):
     return repacked
 
 app = Flask(__name__)
+CORS(app) # to allow cross-origin request between axios and Flask
 app.config['FILE_UPLOADS'] = os.getcwd() + "/upload/"
-
-@app.route('/')
-def home():
-    return render_template('index.html')
 
 @app.route('/upload_csv', methods=['POST'])
 def upload_csv():
-    data = []
+    # upload file locally
     uploaded_file = request.files['test-csv']
     filepath = os.path.join(app.config['FILE_UPLOADS'], uploaded_file.filename)
     uploaded_file.save(filepath)
+
+    # read csv into 2d array
+    data = []
     with open(filepath) as file:
         csv_file = csv.reader(file)
         for row in csv_file:
             data.append(row)
+
+    # make prediction
     prediction = predict_result(data)
-    return render_template('index.html', header=[data[0]], data=data[1:], prediction=prediction)
+
+    return {"data": data, "prediction": prediction.tolist()}
 
 if __name__ == '__main__' :
     app.run(debug=True)

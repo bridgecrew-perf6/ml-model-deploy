@@ -3,7 +3,7 @@ import csv
 import pandas as pd
 import numpy as np
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, request
 from flask_cors import CORS
 from joblib import load
 

@@ -4,7 +4,7 @@ import 'mdbreact/dist/css/mdb.css';
 
 import axios from './axios.js';
 import React, { Component } from 'react';
-import { MDBContainer, MDBDataTable, MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact';
+import { MDBContainer, MDBDataTable } from 'mdbreact';
 
 class App extends Component {
     state = {
@@ -30,8 +30,6 @@ class App extends Component {
         );
 
         axios.post("upload_csv", formData).then(res => {
-            console.log(res.data);
-
             this.setState({ 
                 data: res.data.data,
                 prediction: res.data.prediction

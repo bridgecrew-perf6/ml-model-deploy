@@ -2,7 +2,7 @@
 ## Introduction
 In this project, I have built a simple interface that accepts the Human Activity Recognition test data from [Kaggle](https://www.kaggle.com/uciml/human-activity-recognition-with-smartphones) and displays a simple table-based visualisation of the data uploaded and the prediction made
 
-**UPDATE (v0.1.0):** Have added more visualisation in the front-end, including a pie chart and a bar chart 
+**UPDATE (v0.2.0):** Have added more visualisation in the front-end, including a pie chart and a bar chart 
 
 ## Setting up the Project
 1. Create a virtual environment using `virtualenv venv`
@@ -18,7 +18,7 @@ In this project, I have built a simple interface that accepts the Human Activity
 ### Interface
 This project is built on Flask as a back-end and the front-end is built on HTML/CSS. I have used `sklearn` for the implementation of the machine learning model and the pipeline is dumped using `joblib`
 
-**UPDATE (v0.1.0):** In this new version, I have ported the front-end to ReactJS
+**UPDATE (v0.2.0):** In this new version, I have ported the front-end to ReactJS
 
 ### Machine Learning Model
 Since this is a classification problem, a logistic regression model should work well as a baseline model. Due to time constraint of this project, no pre-processing was done to the data and all columns were used to predict the target class. This yielded an accuracy of close to 94% in the given `test.csv`

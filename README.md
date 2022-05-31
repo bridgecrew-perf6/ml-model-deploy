@@ -10,7 +10,7 @@ In this project, I have built a simple interface that accepts the Human Activity
 3. Install all the python requirements: `pip install -r requirements.txt`
 4. Run `model/model.py` to dump the machine learning pipeline. A new file `human_activity_classification.joblib` should appear in `model/`
 5. Run `server.py` to start the backend server. Keep this terminal open
-6. Open a new terminal and navigate to `frontend/`. Run `npm start` to start the frontend server
+6. Open a new terminal and navigate to `frontend/`. Run `npm install` to install the libraries required, then run `npm start` to start the frontend server
 7. Navigate to `localhost:3000` in your browser
 8. Upload the test file `model/test.csv` and observe the prediction result
 

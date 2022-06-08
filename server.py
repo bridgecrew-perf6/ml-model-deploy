@@ -40,9 +40,13 @@ def calculate_accuracy(data, prediction):
     ground_truth = get_ground_truth_array_from_data(data)
     return accuracy_score(ground_truth, prediction)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./frontend/build', static_url_path='/')
 CORS(app) # to allow cross-origin request between axios and Flask
 app.config['FILE_UPLOADS'] = os.getcwd() + "/upload/"
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/upload_csv', methods=['POST'])
 def upload_csv():
@@ -81,4 +85,4 @@ def upload_csv():
     }
 
 if __name__ == '__main__' :
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))

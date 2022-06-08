@@ -3,6 +3,7 @@
 In this project, I have built a simple interface that accepts the Human Activity Recognition test data from [Kaggle](https://www.kaggle.com/uciml/human-activity-recognition-with-smartphones) and displays a simple table-based visualisation of the data uploaded and the prediction made
 
 **UPDATE (v0.2.0):** Have added more visualisation in the front-end, including a pie chart and a bar chart 
+**UPDATE (v0.3.0):** Deployed the application [here on Heroku](https://ml-model-dep.herokuapp.com/)
 
 ## Setting up the Project
 1. Create a virtual environment using `virtualenv venv`
@@ -33,4 +34,4 @@ There are a lot of ways this project can be improved, including the following:
 - [ ] Add in more features in the interface
     - [ ] Validate that the csv is in the correct format before running the pipeline
     - [ ] Upload interface can be connected to a cloud storage system instead of storing locally
-- [ ] Deploy the interface 
+- [x] Deploy the interface 

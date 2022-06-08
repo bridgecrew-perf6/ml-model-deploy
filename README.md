@@ -2,7 +2,7 @@
 ## Introduction
 In this project, I have built a simple interface that accepts the Human Activity Recognition test data from [Kaggle](https://www.kaggle.com/uciml/human-activity-recognition-with-smartphones) and displays a simple table-based visualisation of the data uploaded and the prediction made
 
-**UPDATE (v0.2.0):** Have added more visualisation in the front-end, including a pie chart and a bar chart 
+**UPDATE (v0.2.0):** Have added more visualisation in the front-end, including a pie chart and a bar chart  
 **UPDATE (v0.3.0):** Deployed the application [here on Heroku](https://ml-model-dep.herokuapp.com/)
 
 ## Setting up the Project
